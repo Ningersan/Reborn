@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import autobind from 'autobind-decorator'
 
 import { Checkbox } from './index'
 import getRandomColor from '../utils/getRandomColor'
@@ -39,22 +40,28 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, any> {
                 return arrColors
             })(),
         }
-        this.toggleOption = this.toggleOption.bind(this)
+        // this.toggleOption = this.toggleOption.bind(this)
     }
 
     componentWillReceiveProps(nextProps: CheckboxGroupProps) {
         if ('value' in nextProps) {
-            this.setState({
-                value: nextProps.value || [],
-            })
+            if (this.state.value !== nextProps.value) {
+                this.setState({
+                    value: nextProps.value || [],
+                })
+            }
         }
     }
 
+    @autobind
     toggleOption(option) {
         const { value } = this.state
         const { onChange } = this.props
+        const index = value.indexOf(option)
         const hasOption = value.includes(option)
-        hasOption ? value.splice(hasOption, 1) : value.push(option)
+
+        console.log(value)
+        !hasOption ? value.push(option) : value.splice(index, 1)
         this.setState({
             value,
         })
@@ -65,13 +72,14 @@ class CheckboxGroup extends React.Component<CheckboxGroupProps, any> {
         const { props, state } = this
         const { style, options } = props
         const { optionColors } = state
+ 
         return (
             <CheckboxGroupWrapper style={style}>
                 {options.map((option, index) => (
                     <Checkbox
                         key={index}
                         text={option}
-                        checked={state.value.indexOf(option) !== -1}
+                        checked={state.value.includes(option)}
                         backgroundActiveColor={optionColors[index]}
                         onChange={() => this.toggleOption(option)}
                         onCheck={(e, i, v, ac) => {

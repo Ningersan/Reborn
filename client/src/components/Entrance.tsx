@@ -1,11 +1,12 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import TextField from 'material-ui/TextField'
+import autobind from 'autobind-decorator'
 import { Button } from '../styles/default'
 import media from '../utils/mediaquery'
 
 const EntranceWrapper = styled.div`
-    position: relative
+    position: relative;
     box-sizing: border-box;
     width: 390px;
     height: 630px;
@@ -169,11 +170,12 @@ class Entrance extends React.Component<EntranceProps, EntranceState> {
             isUsernameValid: null,
             isPasswordValid: null,
         }
-        this.handleFocus = this.handleFocus.bind(this)
-        this.handleBlur = this.handleBlur.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        // this.handleFocus = this.handleFocus.bind(this)
+        // this.handleBlur = this.handleBlur.bind(this)
+        // this.handleSubmit = this.handleSubmit.bind(this)
     }
 
+    @autobind
     handleFocus(e) {
         const { validities } = this.props
         const { target } = e
@@ -187,6 +189,7 @@ class Entrance extends React.Component<EntranceProps, EntranceState> {
         })
     }
 
+    @autobind
     handleBlur(e) {
         const { validities } = this.props
         const { target } = e
@@ -207,6 +210,7 @@ class Entrance extends React.Component<EntranceProps, EntranceState> {
         }
     }
 
+    @autobind
     handleSubmit(e) {
         e.preventDefault()
         const { onSubmit } = this.props

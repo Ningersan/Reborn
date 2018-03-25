@@ -1,7 +1,7 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-
+import autobind from 'autobind-decorator'
 import CheckboxGroup from './CheckboxGroup'
 
 export interface CheckboxProps {
@@ -56,20 +56,24 @@ class Checkbox extends React.Component<CheckboxProps, CheckboxState> {
         this.state = {
             active: props.checked || false,
         }
-        this.handleClick = this.handleClick.bind(this)
+        // this.handleClick = this.handleClick.bind(this)
     }
 
     componentWillReceiveProps(nextProps: CheckboxProps) {
         if ('checked' in nextProps) {
-            this.setState({
-                active: nextProps.checked || false,
-            })
+            if (nextProps.checked !== this.state.active) {
+                this.setState({
+                    active: nextProps.checked || false,
+                })
+            }
         }
     }
 
+    @autobind
     handleClick(e) {
         const { onChange, onCheck, index, text } = this.props
-        console.log(text)
+        // console.log(text)
+
         onChange && onChange()
         this.setState(prevState => {
             onCheck && onCheck(e, index, text, !prevState.active)

@@ -1,4 +1,5 @@
 import * as React from 'react'
+import autobind from 'autobind-decorator'
 import styled from 'styled-components'
 import Checkbox from 'material-ui/Checkbox'
 import ActionFavorite from 'material-ui/svg-icons/action/favorite'
@@ -95,9 +96,10 @@ class Card extends React.Component<CardProps, {}> {
 
     constructor(props) {
         super(props)
-        this.handleCheck = this.handleCheck.bind(this)
+        // this.handleCheck = this.handleCheck.bind(this)
     }
 
+    @autobind
     handleCheck(e, isChecked) {
         const { onLike, onDislike } = this.props
         e.stopPropagation()

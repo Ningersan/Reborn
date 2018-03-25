@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import autobind from 'autobind-decorator'
 import ReactCoreImageUpload from 'react-core-image-upload'
 
 import media from '../utils/mediaquery'
@@ -82,9 +83,10 @@ class UploadImage extends React.Component<UploadImageProps, UploadImageState> {
         this.state = {
             imgURL: props.defaultImgURL,
         }
-        this.handleImageUploaded = this.handleImageUploaded.bind(this)
+        // this.handleImageUploaded = this.handleImageUploaded.bind(this)
     }
 
+    @autobind
     handleImageUploaded(res) {
         this.setState({
             imgURL: res.imgeURL,

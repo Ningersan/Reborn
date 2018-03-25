@@ -1,5 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import autobind from 'autobind-decorator'
+
 
 import { Checkbox } from '../components'
 
@@ -23,16 +25,14 @@ class SelectAll extends React.Component<SelectAllProps, any> {
             // indeterminate: true,
             checkAll: false,
         }
-        this.handleCheckAll = this.handleCheckAll.bind(this)
-        this.handleChange = this.handleChange.bind(this)
+        // this.handleCheckAll = this.handleCheckAll.bind(this)
+        // this.handleChange = this.handleChange.bind(this)
     }
 
+    @autobind
     handleCheckAll() {
         this.setState((prevState, props) => {
-            let checkedList = []
-            if (!prevState.checkAll) {
-                checkedList = options.slice()
-            }
+            const checkedList = !prevState.checkAll ? options.slice() : []
             return {
                 checkedList,
                 checkAll: !prevState.checkAll,
@@ -40,6 +40,7 @@ class SelectAll extends React.Component<SelectAllProps, any> {
         })
     }
 
+    @autobind
     handleChange(checkedValue) {
         if (checkedValue.length === options.length) {
             this.setState({

@@ -12,9 +12,15 @@ export interface CardProps {
     subtitle?: string
     description?: string
     like?: boolean
+    hover?: boolean
     onClick?: React.MouseEventHandler<any>
     onLike?: Function
     onDislike?: Function
+    imgStyle?: Object
+}
+
+export interface CardWrapperProps {
+    hover?: boolean
 }
 
 const CardWrapper = styled.div`
@@ -28,8 +34,10 @@ const CardWrapper = styled.div`
         width: 100%;
     }
     &:hover {
-        box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
-        transform: translateY(-3px);
+        box-shadow: ${(props: CardWrapperProps) =>
+            props.hover && '0 26px 40px -24px rgba(0, 36, 100, 0.3)'};
+        transform: ${(props: CardWrapperProps) =>
+            props.hover && 'translateY(-3px)'};
         cursor: pointer;
     }
     ${media.tablet`
@@ -49,7 +57,6 @@ const CardCover = styled.div``
 
 const CardText = styled.div`
     padding: 20px;
-
     p {
         font-size: 14px;
         line-height: 24px;
@@ -81,6 +88,7 @@ const CardText = styled.div`
 class Card extends React.Component<CardProps, {}> {
     static defaultProps = {
         description: '这个人很懒，什么都没留下。',
+        hover: true,
         like: true,
         cover: 'http://www.360live.com.cn/images/detailpic_no.png',
     }
@@ -108,7 +116,9 @@ class Card extends React.Component<CardProps, {}> {
             subtitle,
             description,
             like,
+            hover,
             onClick,
+            imgStyle,
         } = this.props
         const mStyles = {
             block: {
@@ -122,10 +132,11 @@ class Card extends React.Component<CardProps, {}> {
                 marginBottom: 16,
             },
         }
+
         return (
-            <CardWrapper style={style} onClick={onClick}>
+            <CardWrapper style={style} onClick={onClick} hover={hover}>
                 <CardCover>
-                    <img src={cover} />
+                    <img src={cover} style={imgStyle} />
                 </CardCover>
                 <CardText>
                     <p>{description}</p>

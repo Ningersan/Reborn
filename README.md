@@ -89,15 +89,16 @@ const validities = {
 
 ### Card
 
-| 参数        | 说明             | 类型     | 默认值 |
-| ----------- | ---------------- | -------- | ------ |
-| style       | 根节点样式       | object   |        |
-| cover       | 封面图地址       | string   |        |
-| description | 卡片描述         | string   |        |
-| like        | 是否需要点赞功能 | boolean  |        |
-| onClick     | 点击事件处理函数 | function |        |
-| onLike      | 点赞处理函数     | function |        |
-| onDislike   | 取消点赞处理函数 | function |        |
+| 参数        | 说明                | 类型     | 默认值 |
+| ----------- | ------------------- | -------- | ------ |
+| style       | 根节点样式          | object   |        |
+| cover       | 封面图地址          | string   |        |
+| description | 卡片描述            | string   |        |
+| like        | 是否需要点赞功能    | boolean  | true   |
+| hover       | 是否需要 hover 效果 | boolean  |        |
+| onClick     | 点击事件处理函数    | function |        |
+| onLike      | 点赞处理函数        | function |        |
+| onDislike   | 取消点赞处理函数    | function |        |
 
 ### UploadImage
 

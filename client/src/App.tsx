@@ -25,6 +25,7 @@ import getRandomColor from './utils/getRandomColor'
 import { Center } from './layout'
 
 import { SelectAll } from './demos'
+import { UploadImage, Slider, Card } from './components'
 
 const muiTheme = getMuiTheme({
     palette: {
@@ -66,26 +67,26 @@ const baseStyles = () => injectGlobal`
     }
 `
 
+const styles = {
+    img: {
+        height: '118px',
+    }
+}
+
 const App = () => {
     baseStyles()
-    return (
-        <MuiThemeProvider muiTheme={muiTheme}>
+    return <MuiThemeProvider muiTheme={muiTheme}>
             <div className="container">
-                <div>dispaly</div>
-                <Center>
-                    {/* <Checkbox
-                        index={1}
-                        backgroundActiveColor={getRandomColor()}
-                        onCheck={(e, i, v, ac) => {
-                            console.log(e, i, v, ac)
-                        }}
-                    /> */}
-
-                    <SelectAll />
-                </Center>
+                <Slider>
+                    <Card like={false} hover={false} title="Barry.S.Jiang" subtitle="MIS EC" imgStyle={styles.img} cover="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT8G8O8l2MuhRuJSvZF2ZHh3ODRX3nbPnhWz5hZkrP43KaoBMP" />
+                    <Card like={false} hover={false} title="Barry.S.Jiang" subtitle="MIS EC" imgStyle={styles.img} cover="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT8G8O8l2MuhRuJSvZF2ZHh3ODRX3nbPnhWz5hZkrP43KaoBMP" />
+                    <Card like={false} hover={false} title="Barry.S.Jiang" subtitle="MIS EC" imgStyle={styles.img} cover="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT8G8O8l2MuhRuJSvZF2ZHh3ODRX3nbPnhWz5hZkrP43KaoBMP" />
+                    <Card like={false} hover={false} title="Barry.S.Jiang" subtitle="MIS EC" imgStyle={styles.img} cover="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT8G8O8l2MuhRuJSvZF2ZHh3ODRX3nbPnhWz5hZkrP43KaoBMP" />
+                    <Card like={false} hover={false} title="Barry.S.Jiang" subtitle="MIS EC" imgStyle={styles.img} cover="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT8G8O8l2MuhRuJSvZF2ZHh3ODRX3nbPnhWz5hZkrP43KaoBMP" />
+                    <Card like={false} hover={false} title="Barry.S.Jiang" subtitle="MIS EC" imgStyle={styles.img} cover="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT8G8O8l2MuhRuJSvZF2ZHh3ODRX3nbPnhWz5hZkrP43KaoBMP" />
+                </Slider>
             </div>
         </MuiThemeProvider>
-    )
 }
 
 export default App

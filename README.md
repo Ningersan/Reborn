@@ -140,3 +140,31 @@ const validities = {
 | defaultValue | 默认选中选项         | array                  |        |
 | value        | 选中选项             | array                  |        |
 | onChange     | 选项改变时的处理函数 | function(checkedValue) |        |
+
+### Slider
+
+| 参数        | 说明                   | 类型      | 默认值 |
+| ----------- | ---------------------- | --------- | ------ |
+| style       | 根节点样式             | object    |        |
+| children    | item 节点              | ReactNode |        |
+| itemWidth   | item 宽度              | number    | 210    |
+| itemSpacing | item 间隔              | number     | 5      |
+| onItemClick | 点击 item 时的处理函数 | function  |        |
+
+### SliderController
+
+| 参数        | 说明                   | 类型     | 默认值 |
+| ----------- | ---------------------- | -------- | ------ |
+| style       | 根节点样式             | object   |        |
+| showLeft    | 显示左边区域           | boolean  |        |
+| showRight   | 显示右边区域           | boolean  |        |
+| onItemClick | 点击 item 时的处理函数 | function |        |
+
+```html
+<!--slider-->
+<Slider>
+    <Card />
+    <Card />
+    <Card />
+</Slider>
+```

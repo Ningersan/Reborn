@@ -25,7 +25,7 @@ app.use(
 )
 
 // check token
-app.use(Auth.errorHandle).use(Auth.verifyToken())
+// app.use(Auth.errorHandle).use(Auth.verifyToken())
 
 // log
 app.use(koaLogger())
@@ -35,7 +35,6 @@ app.use(bodyParser())
 
 // implement all api
 app.use(loader.loadRouter())
-
 
 app.listen(config.port, () => {
     console.log(`✅ The server is running at http://localhost:${config.port}/`)

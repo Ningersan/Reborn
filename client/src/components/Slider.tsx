@@ -9,7 +9,7 @@ import styled from 'styled-components'
 import { Card } from './index'
 
 export interface SliderProps {
-    style: React.CSSProperties
+    style?: React.CSSProperties
     children?: React.ReactNode
     itemWidth?: number
     itemSpacing?: number
@@ -110,7 +110,13 @@ class Slider extends React.Component<SliderProps, SliderState> {
 
     render() {
         const { offset, isDockingLeft, isDockingRight } = this.state
-        const { style, itemWidth, itemSpacing, onItemClick, children } = this.props
+        const {
+            style,
+            itemWidth,
+            itemSpacing,
+            onItemClick,
+            children,
+        } = this.props
         const styles = {
             innerContainer: {
                 transform: `translateX(${offset}px)`,
@@ -121,7 +127,10 @@ class Slider extends React.Component<SliderProps, SliderState> {
             },
         }
         const childrenWithProps = React.Children.map(children, (child: any) =>
-            React.cloneElement(child, { style: styles.item, onClick: onItemClick })
+            React.cloneElement(child, {
+                style: styles.item,
+                onClick: onItemClick,
+            })
         )
 
         return (

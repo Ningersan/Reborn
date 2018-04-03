@@ -78,7 +78,7 @@ const App = () => {
     return (
         <MuiThemeProvider muiTheme={muiTheme}>
             <div className="container">
-                <Home />
+                <UploadImage updateURL="http://localhost:9000/api/uploadImage" />
             </div>
         </MuiThemeProvider>
     )

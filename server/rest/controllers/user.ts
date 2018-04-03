@@ -107,8 +107,29 @@ class User extends Controller {
     async uploadImage() {
         const { service } = this.ctx
         const current = this.currentUserName()
-        const upload = multer({ dest: 'uploads/' })
-        upload.single('avatar')
+        // const storage = multer.diskStorage({
+        //     //文件保存路径
+        //     destination: function(req, file, cb) {
+        //         cb(null, 'server/public/uploads/')
+        //     },
+        //     //修改文件名称
+        //     // filename: function(req, file, cb) {
+        //     //     var fileFormat = file.originalname.split('.')
+        //     //     cb(null, Date.now() + '.' + fileFormat[fileFormat.length - 1])
+        //     // },
+        // })
+        console.log(this.ctx.request.body)
+        const upload = multer({ dest: 'server/public/uploads/' })
+        try {
+            console.log('uploadImage')
+            await upload.single('avatar')
+            return this.emit(
+                code.USER_UPDATE_SUCCESS,
+                code.USER_UPDATE_SUCCESS_MSG
+            )
+        } catch (error) {
+            this.ctx.throw(code.SERVER_ERROR)
+        }
     }
 
     // 删除用户

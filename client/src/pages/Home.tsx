@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Masonry from 'react-masonry-component'
 
 import { Header, HeaderLeft, HeaderRight, Content } from '../layout'
-import { Menu, MenuItem, Search, Logo, Card } from '../components'
+import { Menu, MenuItem, Search, Logo, Card, Slider } from '../components'
 
 export interface HomeProps {}
 
@@ -28,7 +28,14 @@ class Home extends React.Component<HomeProps, {}> {
                         </Menu>
                     </HeaderRight>
                 </Header>
+
                 <Content>
+                    <Slider style={{ width: '100%' }}>
+                        <Card hover={false} />
+                        <Card hover={false} />
+                        <Card hover={false} />
+                        <Card hover={false} />
+                    </Slider>
                     <div
                         style={{
                             width: '100%',

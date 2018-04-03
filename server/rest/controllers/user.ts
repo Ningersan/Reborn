@@ -1,6 +1,7 @@
 import * as Koa from 'koa'
 import * as bcrypt from 'bcrypt'
 import * as jsonwebtoken from 'jsonwebtoken'
+import * as multer from 'koa-multer'
 import Controller from './base'
 import bp from '../blueprint'
 import { Auth } from '../middlewares/'
@@ -106,7 +107,8 @@ class User extends Controller {
     async uploadImage() {
         const { service } = this.ctx
         const current = this.currentUserName()
-        
+        const upload = multer({ dest: 'uploads/' })
+        upload.single('avatar')
     }
 
     // 删除用户

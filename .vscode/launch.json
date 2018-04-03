@@ -1,0 +1,23 @@
+{
+  // 使用 IntelliSense 了解相关属性。
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Program",
+      "runtimeArgs": ["-r", "ts-node/register"],
+      "args": ["${workspaceFolder}/server/index.ts"],
+      "cwd": "${workspaceRoot}",
+      "env": { "NODE_ENV": "development" },
+      "restart": true,
+      "sourceMaps": true,
+      // "program": "${workspaceRoot}/node_modules/ts-node/dist/_bin.js",
+      "protocol": "inspector"
+    } // "runtimeExecutable": "tsc",
+    // "program": "${workspaceFolder}/server/index.ts",
+    // "outFiles": ["${workspaceFolder}/server/dist/**/*.js"]
+  ]
+}

@@ -70,23 +70,18 @@ const baseStyles = () => injectGlobal`
 const styles = {
     img: {
         height: '118px',
-    }
+    },
 }
 
 const App = () => {
     baseStyles()
-    return <MuiThemeProvider muiTheme={muiTheme}>
+    return (
+        <MuiThemeProvider muiTheme={muiTheme}>
             <div className="container">
-                <Slider>
-                    <Card like={false} hover={false} title="Barry.S.Jiang" subtitle="MIS EC" imgStyle={styles.img} cover="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT8G8O8l2MuhRuJSvZF2ZHh3ODRX3nbPnhWz5hZkrP43KaoBMP" />
-                    <Card like={false} hover={false} title="Barry.S.Jiang" subtitle="MIS EC" imgStyle={styles.img} cover="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT8G8O8l2MuhRuJSvZF2ZHh3ODRX3nbPnhWz5hZkrP43KaoBMP" />
-                    <Card like={false} hover={false} title="Barry.S.Jiang" subtitle="MIS EC" imgStyle={styles.img} cover="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT8G8O8l2MuhRuJSvZF2ZHh3ODRX3nbPnhWz5hZkrP43KaoBMP" />
-                    <Card like={false} hover={false} title="Barry.S.Jiang" subtitle="MIS EC" imgStyle={styles.img} cover="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT8G8O8l2MuhRuJSvZF2ZHh3ODRX3nbPnhWz5hZkrP43KaoBMP" />
-                    <Card like={false} hover={false} title="Barry.S.Jiang" subtitle="MIS EC" imgStyle={styles.img} cover="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT8G8O8l2MuhRuJSvZF2ZHh3ODRX3nbPnhWz5hZkrP43KaoBMP" />
-                    <Card like={false} hover={false} title="Barry.S.Jiang" subtitle="MIS EC" imgStyle={styles.img} cover="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT8G8O8l2MuhRuJSvZF2ZHh3ODRX3nbPnhWz5hZkrP43KaoBMP" />
-                </Slider>
+                <Home />
             </div>
         </MuiThemeProvider>
+    )
 }
 
 export default App

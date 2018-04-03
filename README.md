@@ -1,62 +1,25 @@
 # Reborn
 
-## Components
+## Back End
 
-### Headear
+### API
 
-```html
-<!--用于头部布局-->
-<Header>
-    <!--左边-->
-    <HeaderLeft>
-        <Logo />
-        <Search />
-        <Menu />
-    </HeaderLeft>
-    <!--右边-->
-    <HeaderRight>
-        <Dropdown />
-    </HeaderRight>
-</Header>
-```
+| Url          | Method |
+| ------------ | ------ |
+| api/register | post   |
+| api/login    | post   |
 
-| 参数  | 说明            | 类型   | 默认值        |
-| ----- | --------------- | ------ | ------------- |
-| style | 根节点样式      | object |               |
-| src   | logo 图标的 src | string | 站点默认 logo |
+### Status
 
-### Logo
+| code | description                                                   |
+| ---- | ------------------------------------------------------------- |
+| 200  | ok                                                            |
+| 401  | 权限错误，访问除了 register/login 以外的 api 都需要携带 token |
+| 500  | 服务器错误，请耐心等待我来修 qwq                              |
 
-| 参数  | 说明            | 类型   | 默认值 |
-| ----- | --------------- | ------ | ------ |
-| style | 根节点样式      | object |        |
-| src   | logo 图标的 src | string |        |
+### Response
 
-### Search
-
-| 参数        | 说明             | 类型    | 默认值   |
-| ----------- | ---------------- | ------- | -------- |
-| style       | 根节点样式       | object  |          |
-| placeholder | 占位文字         | string  | 'search' |
-| focusWidth  | 选中时搜索框长度 | string  | '240px'  |
-| animation   | 是否支持动画     | boolean | true     |
-| iconURL     | 搜索图标的 URL   | string  |          |
-
-### Menu
-
-| 参数  | 说明       | 类型   | 默认值 |
-| ----- | ---------- | ------ | ------ |
-| style | 根节点样式 | object |        |
-
-### MenuItem
-
-| 参数  | 说明       | 类型   | 默认值 |
-| ----- | ---------- | ------ | ------ |
-| style | 根节点样式 | object |        |
-
-### Entrance
-
-例如登陆、注册页面的入口组件
+## Front End
 
 | 参数          | 说明                               | 类型        | 默认值            |
 | ------------- | ---------------------------------- | ----------- | ----------------- |
@@ -148,7 +111,7 @@ const validities = {
 | style       | 根节点样式             | object    |        |
 | children    | item 节点              | ReactNode |        |
 | itemWidth   | item 宽度              | number    | 210    |
-| itemSpacing | item 间隔              | number     | 5      |
+| itemSpacing | item 间隔              | number    | 5      |
 | onItemClick | 点击 item 时的处理函数 | function  |        |
 
 ### SliderController

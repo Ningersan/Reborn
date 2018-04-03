@@ -47,9 +47,9 @@ class Checkbox extends React.Component<CheckboxProps, CheckboxState> {
         backgroundActiveColor:
             'linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)',
     }
-    static contextTypes = {
-        checkboxGroup: PropTypes.any,
-    }
+    // static contextTypes = {
+    //     checkboxGroup: PropTypes.any,
+    // }
 
     constructor(props) {
         super(props)

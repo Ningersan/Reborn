@@ -13,7 +13,7 @@ class User extends Controller {
 
     @bp.post('/api/register')
     async register() {
-        const { username} = this.ctx.request.body
+        const { username } = this.ctx.request.body
 
         try {
             const isUserExist = await this.ctx.service.user.find(username)
@@ -99,6 +99,14 @@ class User extends Controller {
         } catch (error) {
             this.ctx.throw(code.SERVER_ERROR)
         }
+    }
+
+    // 上传图片
+    @bp.post('/api/uploadImage')
+    async uploadImage() {
+        const { service } = this.ctx
+        const current = this.currentUserName()
+        
     }
 
     // 删除用户
